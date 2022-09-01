@@ -2,7 +2,7 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 orbs:
-  cypress:cypress-io/cypress@1
+  cypress: cypress-io/cypress@1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -31,9 +31,8 @@ workflows:
       - cypress/install
       - cypress/run:
           requires:
-            cypress/install
+            - cypress/install
           yarn: true
           parallel: true
           record: true
           parallelism: 4
-      
